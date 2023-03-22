@@ -6,6 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface EquipoRepo extends JpaRepository<Equipo, Integer> {
-    List<Equipo> findByNombre(String Nombre);
-    //List<Equipo> findByNombreEqualsIgnoreCase(String Nombre);
+    List<Equipo> findByNombre(String nombre);
 }

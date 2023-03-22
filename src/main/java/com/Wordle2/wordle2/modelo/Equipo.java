@@ -18,11 +18,11 @@ public class Equipo {
     private int idEquipo;
 
     @Column(name="Nombre", length = 45, nullable = false)
-    private String Nombre;
+    private String nombre;
 
     @Column(name="Imagen", length = 45)
-    private String Imagen = "";
+    private String imagen = "";
 
     @Column(name="Puntos", nullable = false)
-    private Integer Puntos = 0;
+    private Integer puntos = 0;
 }

@@ -21,7 +21,7 @@ public class EquipoController {
     public ResponseEntity<Object> getAllEquipos(){
         List<Equipo> equipos = equipoRepo.findAll();
         if(equipos.isEmpty()){
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.notFound().build();
         }
         else{
             return ResponseEntity.ok(equipos);
@@ -51,15 +51,17 @@ public class EquipoController {
         }
     }
 
-    /*@PostMapping("/equipo")
+    @PostMapping("/equipo")
     public ResponseEntity<?> createEquipo(@RequestBody Equipo newEquipo){
         List<Equipo> equipoExiste = equipoRepo.findByNombre(newEquipo.getNombre());
         if(!equipoExiste.isEmpty()){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         else{
-            newEquipo.setImagen("");
-            newEquipo.setPuntos(0);
+            Equipo equipoNuevo = new Equipo();
+            equipoNuevo.setNombre(newEquipo.getNombre());
+            equipoNuevo.setImagen("");
+            equipoNuevo.setPuntos(0);
             return ResponseEntity.status(HttpStatus.CREATED).build();
         }
     }
@@ -83,5 +85,5 @@ public class EquipoController {
             }
             return ResponseEntity.status(HttpStatus.OK).build();
         }
-    }*/
+    }
 }

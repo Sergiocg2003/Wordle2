@@ -21,20 +21,20 @@ public class Jugador {
     private int idJugador;
 
     @Column(name="Nombre", length = 45, nullable = false)
-    private String Nombre;
+    private String nombre;
 
     @Column(name="Imagen", length = 45)
-    private String Imagen = "";
+    private String imagen = "";
 
     @Column(name= "Pin", length = 45, nullable = false)
-    private String Pin;
+    private String pin;
 
     @Column(name="Puntos", nullable = false)
-    private Integer Puntos = 0;
+    private Integer puntos = 0;
 
     @JsonBackReference
     @ManyToOne
     @NotFound(action = NotFoundAction.IGNORE)
-    @JoinColumn(name = "Equipo_idEquipo")
+    @JoinColumn(name = "equipo_idEquipo")
     private Equipo equipo = null;
 }
