@@ -58,10 +58,9 @@ public class EquipoController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         else{
-            Equipo equipoNuevo = new Equipo();
-            equipoNuevo.setNombre(newEquipo.getNombre());
-            equipoNuevo.setImagen("");
-            equipoNuevo.setPuntos(0);
+            newEquipo.setImagen("");
+            newEquipo.setPuntos(0);
+            equipoRepo.save(newEquipo);
             return ResponseEntity.status(HttpStatus.CREATED).build();
         }
     }
@@ -83,7 +82,9 @@ public class EquipoController {
             if(newEquipo.getImagen() != null && !newEquipo.getImagen().equals(equipoBuscado.get().getImagen())){
                 equipoBuscado.get().setImagen(newEquipo.getImagen());
             }
-            return ResponseEntity.status(HttpStatus.OK).build();
+            Equipo equipo = equipoBuscado.get();
+            equipoRepo.save(equipo);
+            return ResponseEntity.ok(equipo);
         }
     }
 }

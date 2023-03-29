@@ -1,10 +1,12 @@
 package com.Wordle2.wordle2.dto;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
+@AllArgsConstructor
 public class DTOJugadorModif {
     private Integer Equipo_idEquipo;
     private String Nombre;

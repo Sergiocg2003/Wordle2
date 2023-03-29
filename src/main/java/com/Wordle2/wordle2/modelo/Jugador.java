@@ -36,5 +36,5 @@ public class Jugador {
     @ManyToOne
     @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "equipo_idEquipo")
-    private Equipo equipo = null;
+    private Equipo equipo;
 }

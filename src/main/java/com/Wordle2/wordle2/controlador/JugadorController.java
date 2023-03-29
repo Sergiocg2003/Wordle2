@@ -44,7 +44,7 @@ public class JugadorController {
         }
         else{
             System.out.println(jugadorBuscado.get().getEquipo());
-            return ResponseEntity.status(HttpStatus.OK).build();
+            return ResponseEntity.ok(jugadorBuscado);
         }
     }
 
@@ -61,7 +61,7 @@ public class JugadorController {
     }
 
     @PostMapping("/jugador")
-    public ResponseEntity<?> createJugador(@RequestBody Jugador newJugador){
+    public ResponseEntity<?> createJugador(@RequestBody DTOJugadorModif newJugador){
         List<Jugador> jugadorExiste = jugadorRepo.findByNombre(newJugador.getNombre());
         if(!jugadorExiste.isEmpty()){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -72,7 +72,9 @@ public class JugadorController {
             jugadorNuevo.setPin(newJugador.getPin());
             jugadorNuevo.setPuntos(0);
             jugadorNuevo.setImagen("");
-            jugadorNuevo.setEquipo(null);
+            Optional<Equipo> equipo = equipoRepo.findById(newJugador.getEquipo_idEquipo());
+            jugadorNuevo.setEquipo(equipo.get());
+            jugadorRepo.save(jugadorNuevo);
             return ResponseEntity.status(HttpStatus.CREATED).build();
         }
     }
@@ -101,7 +103,9 @@ public class JugadorController {
                 Equipo equipoNuevo = equipoRepo.findById(newJugador.getEquipo_idEquipo()).orElse(null);
                 jugadorBuscado.get().setEquipo(equipoNuevo == null ? jugadorBuscado.get().getEquipo() : equipoNuevo);
             }
-            return ResponseEntity.status(HttpStatus.OK).build();
+            Jugador jugador = jugadorBuscado.get();
+            jugadorRepo.save(jugador);
+            return ResponseEntity.ok(jugador);
         }
     }
 }
