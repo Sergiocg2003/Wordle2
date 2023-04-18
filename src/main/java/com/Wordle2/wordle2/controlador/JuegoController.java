@@ -1,6 +1,5 @@
 package com.Wordle2.wordle2.controlador;
 
-import com.Wordle2.wordle2.modelo.Equipo;
 import com.Wordle2.wordle2.modelo.Juego;
 import com.Wordle2.wordle2.repositorio.EquipoRepo;
 import com.Wordle2.wordle2.repositorio.JugadorRepo;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor

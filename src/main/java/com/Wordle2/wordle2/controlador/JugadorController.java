@@ -6,7 +6,9 @@ import com.Wordle2.wordle2.dto.converter.DTOJugadorConverter;
 import com.Wordle2.wordle2.modelo.Equipo;
 import com.Wordle2.wordle2.modelo.Jugador;
 import com.Wordle2.wordle2.repositorio.EquipoRepo;
+import com.Wordle2.wordle2.repositorio.JuegoRepo;
 import com.Wordle2.wordle2.repositorio.JugadorRepo;
+import com.Wordle2.wordle2.repositorio.PartidaRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,8 @@ public class JugadorController {
     private final JugadorRepo jugadorRepo;
     private final DTOJugadorConverter dtoJugadorConverter;
     private final EquipoRepo equipoRepo;
+    private final PartidaRepo partidaRepo;
+    private final JuegoRepo juegoRepo;
 
     @GetMapping("/jugadores")
     public ResponseEntity<List<?>> getAllJugadores(){
