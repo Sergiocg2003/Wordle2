@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter @Setter
 @AllArgsConstructor
 public class DTOPartidaModif {
+    private Integer idPartida;
     private Integer puntos;
     private Integer intentos;
 }
