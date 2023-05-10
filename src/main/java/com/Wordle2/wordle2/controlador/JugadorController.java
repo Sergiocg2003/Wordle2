@@ -76,7 +76,8 @@ public class JugadorController {
             jugadorNuevo.setPin(newJugador.getPin());
             jugadorNuevo.setPuntos(0);
             jugadorNuevo.setImagen("");
-            Optional<Equipo> equipo = equipoRepo.findById(newJugador.getEquipo_idEquipo());
+            Optional<Equipo> equipo = equipoRepo.findById(newJugador.getIdEquipo());
+            Integer id = equipo.get().getIdEquipo();
             jugadorNuevo.setEquipo(equipo.get());
             jugadorRepo.save(jugadorNuevo);
             return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -103,8 +104,8 @@ public class JugadorController {
             if(newJugador.getImagen() != null && !newJugador.getImagen().isEmpty()){
                 jugadorBuscado.get().setImagen(newJugador.getImagen());
             }
-            if(newJugador.getEquipo_idEquipo() != null && newJugador.getEquipo_idEquipo() > 0) {
-                Equipo equipoNuevo = equipoRepo.findById(newJugador.getEquipo_idEquipo()).orElse(null);
+            if(newJugador.getIdEquipo() != null && newJugador.getIdEquipo() > 0) {
+                Equipo equipoNuevo = equipoRepo.findById(newJugador.getIdEquipo()).orElse(null);
                 jugadorBuscado.get().setEquipo(equipoNuevo == null ? jugadorBuscado.get().getEquipo() : equipoNuevo);
             }
             Jugador jugador = jugadorBuscado.get();

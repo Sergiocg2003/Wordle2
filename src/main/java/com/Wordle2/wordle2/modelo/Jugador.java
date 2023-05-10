@@ -33,7 +33,7 @@ public class Jugador {
     private Integer puntos = 0;
 
     @JsonBackReference
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "equipo_idEquipo")
     private Equipo equipo;

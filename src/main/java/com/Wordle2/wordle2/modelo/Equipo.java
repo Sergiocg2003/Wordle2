@@ -12,10 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "equipo")
 public class Equipo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idEquipo")
-    private Integer idEquipo;
+
 
     @Column(name="Nombre", length = 45, nullable = false)
     private String nombre;
@@ -25,4 +22,9 @@ public class Equipo {
 
     @Column(name="Puntos", nullable = false)
     private Integer puntos = 0;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="idEquipo")
+    private Integer idEquipo;
 }

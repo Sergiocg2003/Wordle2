@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter @Setter
 @AllArgsConstructor
 public class DTOJugadorModif {
-    private Integer Equipo_idEquipo;
+    private Integer idEquipo;
     private String Nombre;
     private String Imagen;
     private String Pin;

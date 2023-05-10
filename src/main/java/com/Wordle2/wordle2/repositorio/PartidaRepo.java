@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface PartidaRepo extends JpaRepository<Partida, Integer> {
-    List<Partida> findByJugador(Integer jugador_idJugador);
+    List<Partida> findByJugador_idJugador(Integer jugador_idJugador);
 }

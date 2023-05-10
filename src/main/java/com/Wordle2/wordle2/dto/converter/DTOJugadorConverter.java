@@ -11,6 +11,14 @@ import org.springframework.stereotype.Component;
 public class DTOJugadorConverter {
     private final ModelMapper modelMapper;
     public DTOJugador convertToDTO(Jugador jugador){
-        return modelMapper.map(jugador,DTOJugador.class);
+        DTOJugador dtoJugador = new DTOJugador();
+        dtoJugador.setIdJugador(jugador.getIdJugador());
+        Integer id = jugador.getEquipo().getIdEquipo();
+        dtoJugador.setIdEquipo(id);
+        dtoJugador.setNombre(jugador.getNombre());
+        dtoJugador.setImagen(jugador.getImagen());
+        dtoJugador.setPin(jugador.getPin());
+        dtoJugador.setPuntos(jugador.getPuntos());
+        return dtoJugador;
     }
 }

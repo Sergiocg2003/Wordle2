@@ -12,7 +12,7 @@ public class DTOPartida {
     private Integer puntos;
     private String palabra;
     private Integer intentos;
-    private Integer jugador_idJugador;
-    private Integer juego_idJuego;
+    private Integer idJugador;
+    private Integer idJuego;
 
 }
