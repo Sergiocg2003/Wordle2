@@ -18,7 +18,7 @@ public class PalabraController {
     @GetMapping("palabras/aleatorias/{cantidad}")
     public ResponseEntity<Object> getPalabrasAleatorias(@PathVariable Long cantidad) throws Exception{
         if(cantidad < 1){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build()
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         else{
             List<String> listaPalabrasAleatorias = palabraService.palabrasRandom(cantidad);
