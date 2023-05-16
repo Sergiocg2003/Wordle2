@@ -1,22 +1,21 @@
 package com.Wordle2.wordle2.servicio;
 
-import com.Wordle2.wordle2.modelo.Palabra;
 import org.springframework.stereotype.Service;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.stereotype.Service;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 @Service
 public class PalabraService {
-    private List<Palabra> listaPalabras = new ArrayList<>();
+    private List<String> listaPalabras = new ArrayList<>();
     public PalabraService() {
         ClassPathResource resource = new ClassPathResource("palabras.txt");
         try{
             BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()));
             String line;
             while((line = reader.readLine()) != null){
-                listaPalabras.add(new Palabra(line.trim()));
+                listaPalabras.add(line.trim());
             }
             reader.close();
         } catch (IOException ioe){
@@ -31,7 +30,7 @@ public class PalabraService {
         }
         for(int x = 0; x < numero; x++){
             int random = (int) (Math.random() * listaPalabras.size());
-            listaRandom.add(String.valueOf(listaPalabras.get(random)));
+            listaRandom.add(listaPalabras.get(random));
         }
         return listaRandom;
     }
