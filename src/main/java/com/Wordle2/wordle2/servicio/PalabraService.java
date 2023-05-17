@@ -55,4 +55,13 @@ public class PalabraService {
         return listaTerminan;
     }
 
+    public List<String> palabrasContiene(String cadena) throws IOException{
+        List<String> listaContiene = new ArrayList<>();
+        for(int x = 0; x < listaPalabras.size(); x++){
+            if(listaPalabras.get(x).contains(cadena)){
+                listaContiene.add(listaPalabras.get(x));
+            }
+        }
+        return listaContiene;
+    }
 }

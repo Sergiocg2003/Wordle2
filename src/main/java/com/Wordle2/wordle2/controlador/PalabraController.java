@@ -58,5 +58,19 @@ public class PalabraController {
         }
     }
 
-
+    @GetMapping("palabras/contiene/{cadena}")
+    public ResponseEntity<Object> getPalabrasContiene(@PathVariable String cadena) throws Exception{
+        if(cadena.isEmpty()){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        else{
+            List<String> listaPalabrasContiene = palabraService.palabrasContiene(cadena);
+            if(listaPalabrasContiene.isEmpty()){
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+            else{
+                return ResponseEntity.ok(listaPalabrasContiene);
+            }
+        }
+    }
 }
