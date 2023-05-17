@@ -37,9 +37,9 @@ public class PalabraService {
 
     public List<String> palabrasEmpiezan(String cadena) throws IOException{
         List<String> listaEmpiezan = new ArrayList<>();
-        for(int x = 0; x < listaPalabras.size(); x++){
-            if(listaPalabras.get(x).startsWith(cadena)){
-                listaEmpiezan.add(listaPalabras.get(x));
+        for (String listaPalabra : listaPalabras) {
+            if (listaPalabra.startsWith(cadena)) {
+                listaEmpiezan.add(listaPalabra);
             }
         }
         return listaEmpiezan;
@@ -47,9 +47,9 @@ public class PalabraService {
 
     public List<String> palabrasTerminan(String cadena) throws IOException{
         List<String> listaTerminan = new ArrayList<>();
-        for(int x = 0; x < listaPalabras.size(); x++){
-            if(listaPalabras.get(x).endsWith(cadena)){
-                listaTerminan.add(listaPalabras.get(x));
+        for (String listaPalabra : listaPalabras) {
+            if (listaPalabra.endsWith(cadena)) {
+                listaTerminan.add(listaPalabra);
             }
         }
         return listaTerminan;
@@ -57,9 +57,9 @@ public class PalabraService {
 
     public List<String> palabrasContiene(String cadena) throws IOException{
         List<String> listaContiene = new ArrayList<>();
-        for(int x = 0; x < listaPalabras.size(); x++){
-            if(listaPalabras.get(x).contains(cadena)){
-                listaContiene.add(listaPalabras.get(x));
+        for (String listaPalabra : listaPalabras) {
+            if (listaPalabra.contains(cadena)) {
+                listaContiene.add(listaPalabra);
             }
         }
         return listaContiene;
