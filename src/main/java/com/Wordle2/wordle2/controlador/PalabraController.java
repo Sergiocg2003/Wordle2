@@ -25,4 +25,38 @@ public class PalabraController {
             return ResponseEntity.ok(listaPalabrasAleatorias);
         }
     }
+
+    @GetMapping("palabras/empiezan/{cadena}")
+    public ResponseEntity<Object> getPalabrasEmpiezan(@PathVariable String cadena) throws Exception{
+        if(cadena.isEmpty()){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        else{
+            List<String> listaPalabrasEmpiezan = palabraService.palabrasEmpiezan(cadena);
+            if(listaPalabrasEmpiezan.isEmpty()){
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+            else{
+                return ResponseEntity.ok(listaPalabrasEmpiezan);
+            }
+        }
+    }
+
+    @GetMapping("palabras/terminan/{cadena}")
+    public ResponseEntity<Object> getPalabrasTerminan(@PathVariable String cadena) throws Exception{
+        if(cadena.isEmpty()){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        else{
+            List<String> listaPalabrasTerminan = palabraService.palabrasTerminan(cadena);
+            if(listaPalabrasTerminan.isEmpty()){
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+            else{
+                return ResponseEntity.ok(listaPalabrasTerminan);
+            }
+        }
+    }
+
+
 }

@@ -35,4 +35,24 @@ public class PalabraService {
         return listaRandom;
     }
 
+    public List<String> palabrasEmpiezan(String cadena) throws IOException{
+        List<String> listaEmpiezan = new ArrayList<>();
+        for(int x = 0; x < listaPalabras.size(); x++){
+            if(listaPalabras.get(x).startsWith(cadena)){
+                listaEmpiezan.add(listaPalabras.get(x));
+            }
+        }
+        return listaEmpiezan;
+    }
+
+    public List<String> palabrasTerminan(String cadena) throws IOException{
+        List<String> listaTerminan = new ArrayList<>();
+        for(int x = 0; x < listaPalabras.size(); x++){
+            if(listaPalabras.get(x).endsWith(cadena)){
+                listaTerminan.add(listaPalabras.get(x));
+            }
+        }
+        return listaTerminan;
+    }
+
 }
